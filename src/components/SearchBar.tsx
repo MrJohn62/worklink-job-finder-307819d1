@@ -13,8 +13,8 @@ interface SearchBarProps {
 
 const SearchBar = ({ onSearch }: SearchBarProps) => {
   const [query, setQuery] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
+  const [city, setCity] = useState('all-cities');
+  const [state, setState] = useState('all-states');
 
   const handleSearch = () => {
     onSearch({
