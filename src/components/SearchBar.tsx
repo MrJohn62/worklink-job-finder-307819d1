@@ -19,8 +19,8 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
   const handleSearch = () => {
     onSearch({
       query: query || undefined,
-      city: city || undefined,
-      state: state || undefined,
+      city: city === 'all-cities' ? undefined : city || undefined,
+      state: state === 'all-states' ? undefined : state || undefined,
     });
   };
 
@@ -49,7 +49,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
               <SelectValue placeholder="Selecione a cidade" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Todas as cidades</SelectItem>
+              <SelectItem value="all-cities">Todas as cidades</SelectItem>
               {cities.map((cityName) => (
                 <SelectItem key={cityName} value={cityName}>
                   {cityName}
@@ -63,7 +63,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
               <SelectValue placeholder="Estado" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Todos os estados</SelectItem>
+              <SelectItem value="all-states">Todos os estados</SelectItem>
               {states.map((stateName) => (
                 <SelectItem key={stateName} value={stateName}>
                   {stateName}
